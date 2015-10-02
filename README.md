@@ -3,7 +3,7 @@ Convert from Word equations to BoxProver input
 
 # Usage
 Write a proof in Huth & Ryan style and put it in Word as a 3xN matrix. For example:
-![Word example](/docs/word_equation.png)
+![Word example](/docs/Word_equation.png)
 Note that no boxes are present - boxes will be detected automatically by the tool.
 
 Next, copy the matrix out of the equation and put it in the clipboard. Then run the tool. If all goes well,
