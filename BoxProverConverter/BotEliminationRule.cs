@@ -1,8 +1,8 @@
 ﻿namespace BoxProverConverter
 {
-	public class BotElimination : Rule
+	public class BotEliminationRule : Rule
 	{
-		public BotElimination(ProofLineRef bot)
+		public BotEliminationRule(ProofLineRef bot)
 		{
 			Bot = bot;
 		}

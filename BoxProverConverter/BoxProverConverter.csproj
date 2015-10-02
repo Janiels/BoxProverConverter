@@ -45,18 +45,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssumptionRule.cs" />
-    <Compile Include="BotElimination.cs" />
+    <Compile Include="BotEliminationRule.cs" />
     <Compile Include="ConjunctionEliminationRule.cs" />
     <Compile Include="ConjunctionIntroductionRule.cs" />
     <Compile Include="DisjunctionEliminationRule.cs" />
     <Compile Include="DisjunctionIntroductionRule.cs" />
-    <Compile Include="ImpliesElimination.cs" />
-    <Compile Include="ImpliesIntroduction.cs" />
+    <Compile Include="ImpliesEliminationRule.cs" />
+    <Compile Include="ImpliesIntroductionRule.cs" />
     <Compile Include="LawOfExcludedMiddleRule.cs" />
-    <Compile Include="NegElimination.cs" />
-    <Compile Include="NegIntroduction.cs" />
-    <Compile Include="NegNegElimination.cs" />
-    <Compile Include="NegNegIntroduction.cs" />
+    <Compile Include="NegEliminationRule.cs" />
+    <Compile Include="NegIntroductionRule.cs" />
+    <Compile Include="NegNegEliminationRule.cs" />
+    <Compile Include="NegNegIntroductionRule.cs" />
     <Compile Include="PremiseRule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProofBox.cs" />

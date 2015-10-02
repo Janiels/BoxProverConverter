@@ -11,6 +11,8 @@ namespace BoxProverConverter
 		[STAThread]
 		private static void Main(string[] args)
 		{
+			char c = '⊤';
+
 			string text = Clipboard.GetText();
 
 			List<ProofLine> lines = new List<ProofLine>();
@@ -92,10 +94,10 @@ namespace BoxProverConverter
 					yield return ((DisjunctionEliminationRule)rule).Case2;
 					break;
 				case RuleType.ImpliesIntroduction:
-					yield return ((ImpliesIntroduction)rule).Box;
+					yield return ((ImpliesIntroductionRule)rule).Box;
 					break;
 				case RuleType.NegIntroduction:
-					yield return ((NegIntroduction)rule).Box;
+					yield return ((NegIntroductionRule)rule).Box;
 					break;
 				case RuleType.ProofByContradiction:
 					yield return ((ProofByContradictionRule)rule).Box;
@@ -159,22 +161,22 @@ namespace BoxProverConverter
 					var disjE = (DisjunctionEliminationRule)rule;
 					return $"by dis_e @l{disjE.Disjunction.To} @l{disjE.Case1.End.To} @l{disjE.Case2.End.To}";
 				case RuleType.NegIntroduction:
-					var negI = (NegIntroduction)rule;
+					var negI = (NegIntroductionRule)rule;
 					return $"by neg_i @l{negI.Box.End.To}";
 				case RuleType.NegElimination:
-					var negE = (NegElimination)rule;
+					var negE = (NegEliminationRule)rule;
 					return $"by neg_e @l{negE.Line.To} @l{negE.NegLine.To}";
 				case RuleType.ImpliesIntroduction:
-					var impI = (ImpliesIntroduction)rule;
+					var impI = (ImpliesIntroductionRule)rule;
 					return $"by imp_i @l{impI.Box.End.To}";
 				case RuleType.ImpliesElimination:
-					var impE = (ImpliesElimination)rule;
+					var impE = (ImpliesEliminationRule)rule;
 					return $"by imp_e @l{impE.Left.To} @l{impE.Implication.To}";
 				case RuleType.NegNegIntroduction:
-					var nnI = (NegNegIntroduction)rule;
+					var nnI = (NegNegIntroductionRule)rule;
 					return $"by nni @l{nnI.Line.To}";
 				case RuleType.NegNegElimination:
-					var nnE = (NegNegElimination)rule;
+					var nnE = (NegNegEliminationRule)rule;
 					return $"by nne @l{nnE.Line.To}";
 				case RuleType.ProofByContradiction:
 					var pbc = (ProofByContradictionRule)rule;

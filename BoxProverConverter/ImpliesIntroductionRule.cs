@@ -1,8 +1,8 @@
 ﻿namespace BoxProverConverter
 {
-	public class ImpliesIntroduction : Rule
+	public class ImpliesIntroductionRule : Rule
 	{
-		public ImpliesIntroduction(ProofBox box)
+		public ImpliesIntroductionRule(ProofBox box)
 		{
 			Box = box;
 		}

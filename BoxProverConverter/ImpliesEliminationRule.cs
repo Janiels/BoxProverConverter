@@ -1,8 +1,8 @@
 ﻿namespace BoxProverConverter
 {
-	public class ImpliesElimination : Rule
+	public class ImpliesEliminationRule : Rule
 	{
-		public ImpliesElimination(ProofLineRef implication, ProofLineRef left)
+		public ImpliesEliminationRule(ProofLineRef implication, ProofLineRef left)
 		{
 			Implication = implication;
 			Left = left;

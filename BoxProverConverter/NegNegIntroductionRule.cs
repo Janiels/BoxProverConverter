@@ -1,8 +1,8 @@
 ﻿namespace BoxProverConverter
 {
-	public class NegNegIntroduction : Rule
+	public class NegNegIntroductionRule : Rule
 	{
-		public NegNegIntroduction(ProofLineRef line)
+		public NegNegIntroductionRule(ProofLineRef line)
 		{
 			Line = line;
 		}
