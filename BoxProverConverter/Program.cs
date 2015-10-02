@@ -11,8 +11,6 @@ namespace BoxProverConverter
 		[STAThread]
 		private static void Main(string[] args)
 		{
-			char c = '⊤';
-
 			string text = Clipboard.GetText();
 
 			List<ProofLine> lines = new List<ProofLine>();
