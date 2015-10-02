@@ -2,14 +2,14 @@
 {
 	public class ImpliesEliminationRule : Rule
 	{
-		public ImpliesEliminationRule(ProofLineRef implication, ProofLineRef left)
+		public ImpliesEliminationRule(ProofLineRef implication, ProofLineRef assumption)
 		{
 			Implication = implication;
-			Left = left;
+			Assumption = assumption;
 		}
 
 		public override RuleType Type => RuleType.ImpliesElimination;
 		public ProofLineRef Implication { get; }
-		public ProofLineRef Left { get; }
+		public ProofLineRef Assumption { get; }
 	}
 }

@@ -53,6 +53,7 @@
     <Compile Include="ImpliesEliminationRule.cs" />
     <Compile Include="ImpliesIntroductionRule.cs" />
     <Compile Include="LawOfExcludedMiddleRule.cs" />
+    <Compile Include="ModusTollensRule.cs" />
     <Compile Include="NegEliminationRule.cs" />
     <Compile Include="NegIntroductionRule.cs" />
     <Compile Include="NegNegEliminationRule.cs" />

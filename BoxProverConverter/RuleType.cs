@@ -22,8 +22,8 @@ namespace BoxProverConverter
 		NegNegIntroduction,
 		NegNegElimination,
 
+		ModusTollens,
 		ProofByContradiction,
-
 		LawOfExcludedMiddle,
 	}
 }

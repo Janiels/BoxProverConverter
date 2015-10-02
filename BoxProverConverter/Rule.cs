@@ -84,6 +84,22 @@ namespace BoxProverConverter
 				return new NegEliminationRule(line, negLine);
 			}
 
+			if (text.StartsWith("⊥e"))
+			{
+				ProofLineRef bot = new ProofLineRef(text.Substring(2).Trim());
+				
+				return new BotEliminationRule(bot);
+			}
+
+			if (text.StartsWith("MT"))
+			{
+				string[] parts = text.Substring(2).Split(',').Select(s => s.Trim()).ToArray();
+
+				ProofLineRef impl = new ProofLineRef(parts[0]);
+				ProofLineRef negConcl = new ProofLineRef(parts[1]);
+				return new ModusTollensRule(impl, negConcl);
+			}
+
 			if (text.StartsWith("PBC"))
 			{
 				ProofBox box = ProofBox.Parse(text.Substring(3).Trim());

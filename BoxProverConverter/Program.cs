@@ -34,11 +34,18 @@ namespace BoxProverConverter
 			boxProver.AppendLine("%abbrev");
 			boxProver.AppendFormat("autogen : {0}", string.Join("", variables.Select(v => $"{{{v}}}"))).AppendLine();
 
-			string premises = string.Join(" , ",
-			                              lines.Where(l => l.Rule.Type == RuleType.Premise)
-			                                   .Select(l => FormulaToBoxProver(l.Formula)));
+			StringBuilder premises = new StringBuilder();
+			foreach (string premise in lines.Where(l => l.Rule.Type == RuleType.Premise)
+			                             .Select(l => FormulaToBoxProver(l.Formula)))
+			{
+				// We want a trailing " , " here. BoxProver requires it if
+				// the premises aren't empty, so we do not use string.Join.
+				premises.Append(premise).Append(" , ");
+			}
+
 			string conclusion = FormulaToBoxProver(lines.Last().Formula);
-			boxProver.AppendFormat("\t\tproof (({0} , |- {1})) =", premises, conclusion).AppendLine();
+			
+			boxProver.AppendFormat("\t\tproof (({0} |- {1})) =", premises, conclusion).AppendLine();
 			boxProver.AppendLine(string.Join("", variables.Select(v => $"[{v}]")));
 
 			List<ProofBox> boxes = lines.SelectMany(l => Boxes(l.Rule)).Distinct().ToList();
@@ -158,24 +165,30 @@ namespace BoxProverConverter
 				case RuleType.DisjunctionElimination:
 					var disjE = (DisjunctionEliminationRule)rule;
 					return $"by dis_e @l{disjE.Disjunction.To} @l{disjE.Case1.End.To} @l{disjE.Case2.End.To}";
+				case RuleType.ImpliesIntroduction:
+					var impI = (ImpliesIntroductionRule)rule;
+					return $"by imp_i @l{impI.Box.End.To}";
+				case RuleType.ImpliesElimination:
+					var impE = (ImpliesEliminationRule)rule;
+					return $"by imp_e @l{impE.Assumption.To} @l{impE.Implication.To}";
 				case RuleType.NegIntroduction:
 					var negI = (NegIntroductionRule)rule;
 					return $"by neg_i @l{negI.Box.End.To}";
 				case RuleType.NegElimination:
 					var negE = (NegEliminationRule)rule;
 					return $"by neg_e @l{negE.Line.To} @l{negE.NegLine.To}";
-				case RuleType.ImpliesIntroduction:
-					var impI = (ImpliesIntroductionRule)rule;
-					return $"by imp_i @l{impI.Box.End.To}";
-				case RuleType.ImpliesElimination:
-					var impE = (ImpliesEliminationRule)rule;
-					return $"by imp_e @l{impE.Left.To} @l{impE.Implication.To}";
+				case RuleType.BotElimination:
+					var bE = (BotEliminationRule)rule;
+					return $"by bot_e @l{bE.Bot.To}";
 				case RuleType.NegNegIntroduction:
 					var nnI = (NegNegIntroductionRule)rule;
 					return $"by nni @l{nnI.Line.To}";
 				case RuleType.NegNegElimination:
 					var nnE = (NegNegEliminationRule)rule;
 					return $"by nne @l{nnE.Line.To}";
+				case RuleType.ModusTollens:
+					var mt = (ModusTollensRule)rule;
+					return $"by mt @{mt.Implication.To} @{mt.NegConclusion.To}";
 				case RuleType.ProofByContradiction:
 					var pbc = (ProofByContradictionRule)rule;
 					return $"by pbc @l{pbc.Box.End.To}";
