@@ -34,6 +34,9 @@ p /\ q		by con_i @l7 @l12 ; [@l13]
  ~ q \/  ~ p		by nne @l15.
 ```
 
+And BoxProver gives this:
+![BoxProver output](/docs/BoxProver_equation.png)
+
 # Useful shortcuts in equations:
 New 3x8 matrix:  
 `\matrix<space>(&&@@@@@@@@)<space>`  
