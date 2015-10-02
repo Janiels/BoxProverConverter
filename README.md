@@ -2,7 +2,7 @@
 Convert from Word equations to BoxProver input
 
 # Usage
-Write a proof in Huth & Ryan style and put it in Word as a 3xN matrix. For example:
+Write a proof in Huth & Ryan style and put it in Word as a 3xN matrix. For example:  
 ![Word example](/docs/Word_equation.png)
 
 Note that no boxes are present - boxes will be detected automatically by the tool.
@@ -34,7 +34,7 @@ p /\ q		by con_i @l7 @l12 ; [@l13]
  ~ q \/  ~ p		by nne @l15.
 ```
 
-And BoxProver gives this:
+And BoxProver gives this:  
 ![BoxProver output](/docs/BoxProver_equation.png)
 
 # Useful shortcuts in equations:
