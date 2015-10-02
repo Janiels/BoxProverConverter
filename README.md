@@ -35,13 +35,13 @@ p /\ q		by con_i @l7 @l12 ; [@l13]
 ```
 
 # Useful shortcuts in equations:
-New 3x8 matrix:
-`\matrix<space>(&&@@@@@@@@)<space>`
+New 3x8 matrix:  
+`\matrix<space>(&&@@@@@@@@)<space>`  
 For each @, adds another row to the matrix
 
-`\wedge`: ∧
-`\vee`: ∨
-`\neg`: ¬
-`->`: →
-`⊤`: \top
+`\wedge`: ∧  
+`\vee`: ∨  
+`\neg`: ¬  
+`->`: →  
+`⊤`: \top  
 `⊥`: \bot
