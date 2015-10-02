@@ -18,7 +18,7 @@ namespace BoxProverConverter
 			if (text.StartsWith("∧i"))
 			{
 				string[] parts = text.Substring(2).Split(',').Select(s => s.Trim()).ToArray();
-				return new ConjunctionIntroductionRule(new ProofLineRef(parts[0]), new ProofLineRef(parts[1])); 
+				return new ConjunctionIntroductionRule(new ProofLineRef(parts[0]), new ProofLineRef(parts[1]));
 			}
 
 			if (text.StartsWith("∧e"))

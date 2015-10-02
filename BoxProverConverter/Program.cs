@@ -35,7 +35,8 @@ namespace BoxProverConverter
 			boxProver.AppendFormat("autogen : {0}", string.Join("", variables.Select(v => $"{{{v}}}"))).AppendLine();
 
 			string premises = string.Join(" , ",
-			                              lines.Where(l => l.Rule.Type == RuleType.Premise).Select(l => FormulaToBoxProver(l.Formula)));
+			                              lines.Where(l => l.Rule.Type == RuleType.Premise)
+			                                   .Select(l => FormulaToBoxProver(l.Formula)));
 			string conclusion = FormulaToBoxProver(lines.Last().Formula);
 			boxProver.AppendFormat("\t\tproof (({0} , |- {1})) =", premises, conclusion).AppendLine();
 			boxProver.AppendLine(string.Join("", variables.Select(v => $"[{v}]")));
@@ -112,11 +113,11 @@ namespace BoxProverConverter
 				                                .Replace("∧", "|")
 				                                .Replace("∨", "|")
 				                                .Replace("¬", "|")
-												.Replace("→", "|")
-												.Replace("(", "|")
-												.Replace(")", "|")
-												.Replace("⊤", "|")
-												.Replace("⊥", "|")
+				                                .Replace("→", "|")
+				                                .Replace("(", "|")
+				                                .Replace(")", "|")
+				                                .Replace("⊤", "|")
+				                                .Replace("⊥", "|")
 				                                .Split(new[] {"|"}, StringSplitOptions.RemoveEmptyEntries))
 				{
 					string trimmed = variable.Trim();
@@ -133,7 +134,7 @@ namespace BoxProverConverter
 			return formula.Replace("∧", " /\\ ")
 			              .Replace("∨", " \\/ ")
 			              .Replace("¬", " ~ ")
-						  .Replace("→", " => ")
+			              .Replace("→", " => ")
 			              .Replace("⊤", " top ")
 			              .Replace("⊥", " bot ");
 		}
@@ -181,7 +182,7 @@ namespace BoxProverConverter
 					return $"by pbc @l{pbc.Box.End.To}";
 				case RuleType.LawOfExcludedMiddle:
 					return "by lem";
-                default:
+				default:
 					throw new NotImplementedException();
 			}
 		}

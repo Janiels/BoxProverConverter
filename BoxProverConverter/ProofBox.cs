@@ -8,7 +8,7 @@
 			End = end;
 		}
 
-		public ProofLineRef Start { get; } 
+		public ProofLineRef Start { get; }
 		public ProofLineRef End { get; }
 
 		protected bool Equals(ProofBox other)
