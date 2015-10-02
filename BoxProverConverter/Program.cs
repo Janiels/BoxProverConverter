@@ -121,8 +121,7 @@ namespace BoxProverConverter
 				                                .Split(new[] {"|"}, StringSplitOptions.RemoveEmptyEntries))
 				{
 					string trimmed = variable.Trim();
-					if (trimmed != "⊤" && trimmed != "⊥")
-						variables.Add(trimmed);
+					variables.Add(trimmed);
 				}
 			}
 
