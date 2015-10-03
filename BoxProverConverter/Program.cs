@@ -153,6 +153,9 @@ namespace BoxProverConverter
 					return "premise";
 				case RuleType.Assumption:
 					return "assumption";
+				case RuleType.Copy:
+					CopyRule copy = (CopyRule)rule;
+					return $"by copy @l{copy.Line.To}";
 				case RuleType.ConjunctionIntroduction:
 					var conjI = (ConjunctionIntroductionRule)rule;
 					return $"by con_i @l{conjI.Left.To} @l{conjI.Right.To}";

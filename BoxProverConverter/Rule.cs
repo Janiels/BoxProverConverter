@@ -15,6 +15,11 @@ namespace BoxProverConverter
 			if (text.StartsWith("assumption"))
 				return new AssumptionRule();
 
+			if (text.StartsWith("copy"))
+			{
+				return new CopyRule(new ProofLineRef(text.Substring(4).Trim()));
+			}
+
 			if (text.StartsWith("∧i"))
 			{
 				string[] parts = text.Substring(2).Split(',').Select(s => s.Trim()).ToArray();

@@ -48,6 +48,7 @@
     <Compile Include="BotEliminationRule.cs" />
     <Compile Include="ConjunctionEliminationRule.cs" />
     <Compile Include="ConjunctionIntroductionRule.cs" />
+    <Compile Include="CopyRule.cs" />
     <Compile Include="DisjunctionEliminationRule.cs" />
     <Compile Include="DisjunctionIntroductionRule.cs" />
     <Compile Include="ImpliesEliminationRule.cs" />

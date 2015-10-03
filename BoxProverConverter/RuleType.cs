@@ -5,6 +5,8 @@ namespace BoxProverConverter
 		Premise,
 		Assumption,
 
+		Copy,
+
 		ConjunctionIntroduction,
 		ConjunctionElimination,
 
